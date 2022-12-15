@@ -1,8 +1,8 @@
 const fs = require("fs");
 
 // fs.readFile("/path/to/file", "encoding-type", (err, data) => {}
-fs.readFile("input.txt", "utf-8", (error, data) => {
-  // console.log(data.length);
+fs.readFile("caloriesInput.txt", "utf-8", (error, data) => {
+  console.log(data.length);
   const input = data
     .split("\n")
     .map((calorieInput) => Number(calorieInput))
