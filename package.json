@@ -1,0 +1,19 @@
+{
+  "name": "adventofcode22",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "module",
+    "url": "git+https://github.com/cdsalty/AdventOfCode2022.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cdsalty/AdventOfCode2022/issues"
+  },
+  "homepage": "https://github.com/cdsalty/AdventOfCode2022#readme"
+}
