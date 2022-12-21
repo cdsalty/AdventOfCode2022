@@ -1,6 +1,5 @@
 import { readFileSync } from "fs";
 
-// Code with thought process below code.
 const lines = readFileSync("inputData.txt", { encoding: "utf-8" })
   .trim()
   .split("\n");
