@@ -6,6 +6,11 @@ const lines = readFileSync("testData.txt", { encoding: "utf-8" })
 
 console.log(lines); // [ '2-4,6-8', '2-3,4-5', '5-7,7-9', '2-8,3-7', '6-6,4-6', '2-6,4-8' ]
 
+function partOne() {
+  const results = lines.map((line) => {});
+}
+partOne();
+
 /*
 --- Day 4: Camp Cleanup ---
 Space needs to be cleared before the last supplies can be unloaded from the ships, and so several Elves have been assigned the job of cleaning up sections of the camp. 
@@ -20,11 +25,11 @@ However, as some of the Elves compare their section assignments with each other,
 
 For example, consider the following list of section assignment pairs:
 
-2-4,6-8 :the first Elf was assigned sections 2-4 (sections 2, 3, and 4), the second was assigned sections 6-8 (sections 6, 7, 8)
+2-4,6-8 (the first Elf was assigned sections 2-4 (sections 2, 3, and 4), the second was assigned sections 6-8 (sections 6, 7, 8))
 2-3,4-5
-5-7,7-9
-2-8,3-7
-6-6,4-6
+5-7,7-9 (Here... one got sections 5, 6, and 7, while the other also got 7, plus 8 and 9.)
+2-8,3-7 
+6-6,4-6 
 2-6,4-8
 For the first few pairs, this list means:
 
