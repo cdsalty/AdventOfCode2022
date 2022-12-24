@@ -1,17 +1,54 @@
 import { readFileSync } from "fs";
 
-const lines = readFileSync("testData.txt", { encoding: "utf-8" })
+const lines = readFileSync("realData.txt", { encoding: "utf-8" })
   .trim()
   .split("\n");
 
-console.log(lines); // [ '2-4,6-8', '2-3,4-5', '5-7,7-9', '2-8,3-7', '6-6,4-6', '2-6,4-8' ]
+function part1() {
+  const result = lines.map((line) => {
+    // const [interval1, interval2] = line.split(","); // sperates into two columns to work with
+    // How it currently looks after splitting with a comma
+    // { interval1: '2-4' } { interval2: '6-8' }
+    // { interval1: '2-3' } { interval2: '4-5' }
+    const [interval1, interval2] = line
+      .split(",")
+      .map((interval) => interval.split("-").map(Number))
+      .sort((a, b) => {
+        const oneSize = a[1] - a[0];
+        // console.log({ oneSize });
+        const twoSize = b[1] - b[0];
+        // console.log({ twoSize });
+        return twoSize - oneSize;
+      });
+    // console.log({ interval1, interval2 });
 
-function partOne() {
-  const results = lines.map((line) => {});
+    // Edge case
+    const oneFullContainsTwo =
+      interval1[0] <= interval2[0] && interval1[1] >= interval2[1];
+
+    return oneFullContainsTwo ? 1 : 0;
+  });
+  // console.log({ result });
+  console.log(result.reduce((a, b) => a + b, 0));
 }
-partOne();
-
+part1();
 /*
+
+
+--------------------
+
+My Notes:
+// const [interval1, interval2] = line.split(","); // sperates into two columns to work with
+    // How it currently looks after splitting with a comma
+    // { interval1: '2-4' } { interval2: '6-8' }
+    // { interval1: '2-3' } { interval2: '4-5' }
+    const [interval1, interval2] = line
+      .split(",")
+      .map((interval) => interval.split("-"));
+    // console.log({ interval1, interval2 });  { interval1: [ '2', '4' ] } { interval2: [ '6', '8' ] }
+    // then needed to map over to get number values
+
+
 --- Day 4: Camp Cleanup ---
 Space needs to be cleared before the last supplies can be unloaded from the ships, and so several Elves have been assigned the job of cleaning up sections of the camp. 
 
